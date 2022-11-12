@@ -3,13 +3,13 @@ package de.htwberlin.webtech.web.api;
 public class Item {
 
     private long id;
-    private String ingredientName;
+    private String itemName;
     private String unit;
     private double quantity;
 
-    public Item(long id, String ingredientName, String unit, double quantity) {
+    public Item(long id, String itemName, String unit, double quantity) {
         this.id = id;
-        this.ingredientName = ingredientName;
+        this.itemName = itemName;
         this.unit = unit;
         this.quantity = quantity;
     }
@@ -22,12 +22,12 @@ public class Item {
         this.id = id;
     }
 
-    public String getIngredientName() {
-        return ingredientName;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setIngredientName(String ingredientName) {
-        this.ingredientName = ingredientName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public String getUnit() {
