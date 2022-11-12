@@ -19,8 +19,8 @@ public class ItemEntity {
     @Column(name ="quantity")
     private Double quantity;
 
-    public ItemEntity(Long id, String itemName, String unit, Double quantity) {
-        this.id = id;
+    public ItemEntity(String itemName, String unit, Double quantity) {
+
         this.itemName = itemName;
         this.unit = unit;
         this.quantity = quantity;
@@ -31,7 +31,6 @@ public class ItemEntity {
     public Long getId() {
         return id;
     }
-
 
     public String getItemName() {
         return itemName;
