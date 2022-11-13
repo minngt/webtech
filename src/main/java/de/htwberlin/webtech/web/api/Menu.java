@@ -1,5 +1,7 @@
 package de.htwberlin.webtech.web.api;
 
+import java.util.List;
+
 public class Menu {
 
     private long id;
@@ -7,13 +9,15 @@ public class Menu {
     private String unit;
     private double quantity;
     private String course;
+    private List<Long> ingsIds;
 
-    public Menu(long id, String menuName, String unit, double quantity, String course) {
+    public Menu(long id, String menuName, String unit, double quantity, String course, List<Long> ingsIds) {
         this.id = id;
         this.menuName = menuName;
         this.unit = unit;
         this.quantity = quantity;
         this.course = course;
+        this.ingsIds = ingsIds;
     }
 
     public long getId() {
@@ -54,5 +58,13 @@ public class Menu {
 
     public void setCourse(String course) {
         this.course = course;
+    }
+
+    public List<Long> getIngsIds() {
+        return ingsIds;
+    }
+
+    public void setIngsIds(List<Long> ingsIds) {
+        this.ingsIds = ingsIds;
     }
 }

@@ -13,39 +13,30 @@ import java.util.stream.Collectors;
 @Service
 public class MenuService {
     private final MenuRepository menuRepository;
+    private final MenuTransformer menuTransformer;
 
-    public MenuService(MenuRepository menuRepository) {
+    public MenuService(MenuRepository menuRepository, MenuTransformer menuTransformer) {
         this.menuRepository = menuRepository;
+        this.menuTransformer = menuTransformer;
     }
 
     public List<Menu> findAll(){
         List<MenuEntity> menus = menuRepository.findAll();
         return menus.stream()
-                .map(this::transformEntity)
+                .map(menuTransformer::transformEntity)
                 .collect(Collectors.toList());
     }
 
     public Menu findById(Long id){
         var menuEntity = menuRepository.findById(id);
-        return menuEntity.map(this::transformEntity).orElse(null);
+        return menuEntity.map(menuTransformer::transformEntity).orElse(null);
     }
 
     public Menu create(MenuManipulationRequest request){
         var course = Course.valueOf(request.getCourse());
         var menuEntity = new MenuEntity(request.getMenuName(), request.getUnit(), request.getQuantity(), course);
         menuEntity = menuRepository.save(menuEntity);
-        return transformEntity(menuEntity);
-    }
-
-    private Menu transformEntity(MenuEntity menuEntity){
-        var course = menuEntity.getCourse() != null ? menuEntity.getCourse().name() : Course.OTHER.name();
-        return new Menu(
-                menuEntity.getId(),
-                menuEntity.getMenuName(),
-                menuEntity.getUnit(),
-                menuEntity.getQuantity(),
-                course
-        );
+        return menuTransformer.transformEntity(menuEntity);
     }
 
     public Menu update(Long id, MenuManipulationRequest request) {
@@ -61,7 +52,7 @@ public class MenuService {
         menuEntity.setCourse(Course.valueOf(request.getCourse()));
         menuEntity = menuRepository.save(menuEntity);
 
-        return transformEntity(menuEntity);
+        return menuTransformer.transformEntity(menuEntity);
     }
 
     public boolean deleteById(Long id) {

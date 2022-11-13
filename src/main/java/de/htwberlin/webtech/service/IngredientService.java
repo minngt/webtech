@@ -15,10 +15,12 @@ import java.util.stream.Collectors;
 public class IngredientService {
     private final IngredientRepository ingredientRepository;
     private final MenuRepository menuRepository;
+    private final MenuTransformer menuTransformer;
 
-    public IngredientService(IngredientRepository ingredientRepository, MenuRepository menuRepository) {
+    public IngredientService(IngredientRepository ingredientRepository, MenuRepository menuRepository, MenuTransformer menuTransformer) {
         this.ingredientRepository = ingredientRepository;
         this.menuRepository = menuRepository;
+        this.menuTransformer = menuTransformer;
     }
 
     public List<Ingredient> findAll() {
@@ -42,6 +44,6 @@ public class IngredientService {
                 ingredientEntity.getId(),
                 ingredientEntity.getIngsName(),
                 course,
-                ingredientEntity.getMeal().getId());
+                menuTransformer.transformEntity(ingredientEntity.getMeal()));
     }
 }

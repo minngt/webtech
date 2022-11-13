@@ -4,13 +4,14 @@ public class Ingredient {
     private Long id;
     private String ingsName;
     private String course;
-    private Long menu_id;
+    private Menu menu;
 
-    public Ingredient(Long id, String ingsName, String course, Long menu_id) {
+    public Ingredient(Long id, String ingsName, String course, Menu menu) {
         this.id = id;
         this.ingsName = ingsName;
         this.course = course;
-        this.menu_id = menu_id;
+        this.menu = menu;
+
     }
 
     public Long getId() {
@@ -37,11 +38,7 @@ public class Ingredient {
         this.course = course;
     }
 
-    public Long getMenu_id() {
-        return menu_id;
-    }
+    public Menu getMenu() { return menu; }
 
-    public void setMenu_id(Long menu_id) {
-        this.menu_id = menu_id;
-    }
+    public void setMenu(Menu menu) { this.menu = menu; }
 }

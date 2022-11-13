@@ -1,6 +1,8 @@
 package de.htwberlin.webtech.persistence;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "menus")
 public class MenuEntity {
@@ -22,6 +24,9 @@ public class MenuEntity {
     @Column(name = "course")
     @Enumerated(value = EnumType.STRING)
     private Course course;
+
+    @OneToMany(mappedBy = "meal", fetch = FetchType.EAGER)
+    private List<IngredientEntity> ingredients = new ArrayList<>();
 
     public MenuEntity(String menuName, String unit, Double quantity, Course course) {
 
@@ -67,5 +72,13 @@ public class MenuEntity {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public List<IngredientEntity> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<IngredientEntity> ingredients) {
+        this.ingredients = ingredients;
     }
 }

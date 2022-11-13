@@ -17,8 +17,8 @@ public class IngredientEntity {
     @Enumerated(value = EnumType.STRING)
     private Course course;
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "mealId", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "meal_id", referencedColumnName = "id")
     private MenuEntity meal;
 
     public  IngredientEntity(){
