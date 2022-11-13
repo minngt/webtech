@@ -3,10 +3,7 @@ package de.htwberlin.webtech.persistence;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface ItemRepository extends JpaRepository<ItemEntity, Long> {
+public interface IngredientRepository extends JpaRepository<IngredientEntity, Long> {
 
-    List<ItemEntity> findAllByItemName(String itemName);
 }

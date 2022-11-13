@@ -1,17 +1,19 @@
 package de.htwberlin.webtech.web.api;
 
-public class Item {
+public class Menu {
 
     private long id;
-    private String itemName;
+    private String menuName;
     private String unit;
     private double quantity;
+    private String course;
 
-    public Item(long id, String itemName, String unit, double quantity) {
+    public Menu(long id, String menuName, String unit, double quantity, String course) {
         this.id = id;
-        this.itemName = itemName;
+        this.menuName = menuName;
         this.unit = unit;
         this.quantity = quantity;
+        this.course = course;
     }
 
     public long getId() {
@@ -22,12 +24,12 @@ public class Item {
         this.id = id;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getMenuName() {
+        return menuName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
     }
 
     public String getUnit() {
@@ -44,5 +46,13 @@ public class Item {
 
     public void setQuantity(double quantity) {
         this.quantity = quantity;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }

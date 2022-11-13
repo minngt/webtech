@@ -2,16 +2,16 @@ package de.htwberlin.webtech.persistence;
 
 import javax.persistence.*;
 
-@Entity(name = "items")
-public class ItemEntity {
+@Entity(name = "menus")
+public class MenuEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id")
     private Long id;
 
-    @Column(name = "item_name", nullable = false)
-    private String itemName;
+    @Column(name = "menu_name", nullable = false)
+    private String menuName;
 
     @Column(name = "unit")
     private String unit;
@@ -19,25 +19,30 @@ public class ItemEntity {
     @Column(name ="quantity")
     private Double quantity;
 
-    public ItemEntity(String itemName, String unit, Double quantity) {
+    @Column(name = "course")
+    @Enumerated(value = EnumType.STRING)
+    private Course course;
 
-        this.itemName = itemName;
+    public MenuEntity(String menuName, String unit, Double quantity, Course course) {
+
+        this.menuName = menuName;
         this.unit = unit;
         this.quantity = quantity;
+        this.course = course;
     }
 
-    protected ItemEntity() {}
+    protected MenuEntity() {}
 
     public Long getId() {
         return id;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getMenuName() {
+        return menuName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
     }
 
     public String getUnit() {
@@ -54,5 +59,13 @@ public class ItemEntity {
 
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }
