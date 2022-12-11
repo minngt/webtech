@@ -12,6 +12,8 @@ public class IngredientManipulationRequest {
         this.mealId = mealId;
     }
 
+    public IngredientManipulationRequest(){}
+
     public String getIngsName() {
         return ingsName;
     }

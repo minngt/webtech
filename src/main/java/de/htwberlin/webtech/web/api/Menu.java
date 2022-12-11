@@ -9,15 +9,15 @@ public class Menu {
     private String unit;
     private double quantity;
     private String course;
-    private List<Long> ingsIds;
+    private List<Long> ingsName;
 
-    public Menu(long id, String menuName, String unit, double quantity, String course, List<Long> ingsIds) {
+    public Menu(long id, String menuName, String unit, double quantity, String course, List<Long> ingsName) {
         this.id = id;
         this.menuName = menuName;
         this.unit = unit;
         this.quantity = quantity;
         this.course = course;
-        this.ingsIds = ingsIds;
+        this.ingsName = ingsName;
     }
 
     public long getId() {
@@ -60,11 +60,11 @@ public class Menu {
         this.course = course;
     }
 
-    public List<Long> getIngsIds() {
-        return ingsIds;
+    public List<Long> getIngsName() {
+        return ingsName;
     }
 
-    public void setIngsIds(List<Long> ingsIds) {
-        this.ingsIds = ingsIds;
+    public void setIngsName(List<Long> ingsName) {
+        this.ingsName = ingsName;
     }
 }

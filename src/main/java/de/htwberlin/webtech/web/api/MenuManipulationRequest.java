@@ -15,6 +15,7 @@ public class MenuManipulationRequest {
         this.course = course;
     }
 
+    public MenuManipulationRequest(){}
 
     public String getMenuName() {
         return menuName;
