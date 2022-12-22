@@ -8,16 +8,16 @@ public class Menu {
     private String menuName;
     private String unit;
     private double quantity;
-    private String course;
-    private List<Long> ingsName;
+    private String category;
+    private List<Long> extraName;
 
-    public Menu(long id, String menuName, String unit, double quantity, String course, List<Long> ingsName) {
+    public Menu(long id, String menuName, String unit, double quantity, String category, List<Long> extraName) {
         this.id = id;
         this.menuName = menuName;
         this.unit = unit;
         this.quantity = quantity;
-        this.course = course;
-        this.ingsName = ingsName;
+        this.category = category;
+        this.extraName = extraName;
     }
 
     public long getId() {
@@ -52,19 +52,19 @@ public class Menu {
         this.quantity = quantity;
     }
 
-    public String getCourse() {
-        return course;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public List<Long> getIngsName() {
-        return ingsName;
+    public List<Long> getExtraName() {
+        return extraName;
     }
 
-    public void setIngsName(List<Long> ingsName) {
-        this.ingsName = ingsName;
+    public void setExtraName(List<Long> extraName) {
+        this.extraName = extraName;
     }
 }

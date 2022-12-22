@@ -1,6 +1,6 @@
 package de.htwberlin.webtech.service;
 
-import de.htwberlin.webtech.persistence.Course;
+import de.htwberlin.webtech.persistence.Category;
 import de.htwberlin.webtech.persistence.MenuEntity;
 import de.htwberlin.webtech.persistence.MenuRepository;
 import de.htwberlin.webtech.web.api.Menu;
@@ -33,8 +33,8 @@ public class MenuService {
     }
 
     public Menu create(MenuManipulationRequest request){
-        var course = Course.valueOf(request.getCourse());
-        var menuEntity = new MenuEntity(request.getMenuName(), request.getUnit(), request.getQuantity(), course);
+        var category = Category.valueOf(request.getCategory());
+        var menuEntity = new MenuEntity(request.getMenuName(), request.getUnit(), request.getQuantity(), category);
         menuEntity = menuRepository.save(menuEntity);
         return menuTransformer.transformEntity(menuEntity);
     }
@@ -49,7 +49,7 @@ public class MenuService {
         menuEntity.setMenuName(request.getMenuName());
         menuEntity.setUnit(request.getUnit());
         menuEntity.setQuantity(request.getQuantity());
-        menuEntity.setCourse(Course.valueOf(request.getCourse()));
+        menuEntity.setCategory(Category.valueOf(request.getCategory()));
         menuEntity = menuRepository.save(menuEntity);
 
         return menuTransformer.transformEntity(menuEntity);

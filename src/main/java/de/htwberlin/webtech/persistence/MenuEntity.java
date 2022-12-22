@@ -21,19 +21,19 @@ public class MenuEntity {
     @Column(name ="quantity")
     private Double quantity;
 
-    @Column(name = "course")
+    @Column(name = "category")
     @Enumerated(value = EnumType.STRING)
-    private Course course;
+    private Category category;
 
     @OneToMany(mappedBy = "meal", fetch = FetchType.EAGER)
-    private List<IngredientEntity> ingredients = new ArrayList<>();
+    private List<ExtraEntity> extras = new ArrayList<>();
 
-    public MenuEntity(String menuName, String unit, Double quantity, Course course) {
+    public MenuEntity(String menuName, String unit, Double quantity, Category category) {
 
         this.menuName = menuName;
         this.unit = unit;
         this.quantity = quantity;
-        this.course = course;
+        this.category = category;
     }
 
     protected MenuEntity() {}
@@ -66,19 +66,19 @@ public class MenuEntity {
         this.quantity = quantity;
     }
 
-    public Course getCourse() {
-        return course;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    public List<IngredientEntity> getIngredients() {
-        return ingredients;
+    public List<ExtraEntity> getExtras() {
+        return extras;
     }
 
-    public void setIngredients(List<IngredientEntity> ingredients) {
-        this.ingredients = ingredients;
+    public void setExtras(List<ExtraEntity> extras) {
+        this.extras = extras;
     }
 }

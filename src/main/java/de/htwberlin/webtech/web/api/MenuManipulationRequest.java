@@ -5,14 +5,14 @@ public class MenuManipulationRequest {
     private String menuName;
     private String unit;
     private double quantity;
-    private String course;
+    private String category;
 
 
-    public MenuManipulationRequest(String menuName, String unit, double quantity, String course) {
+    public MenuManipulationRequest(String menuName, String unit, double quantity, String category) {
         this.menuName = menuName;
         this.unit = unit;
         this.quantity = quantity;
-        this.course = course;
+        this.category = category;
     }
 
     public MenuManipulationRequest(){}
@@ -41,11 +41,11 @@ public class MenuManipulationRequest {
         this.quantity = quantity;
     }
 
-    public String getCourse() {
-        return course;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
