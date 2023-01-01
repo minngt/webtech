@@ -34,7 +34,7 @@ public class MenuService {
 
     public Menu create(MenuManipulationRequest request){
         var category = Category.valueOf(request.getCategory());
-        var menuEntity = new MenuEntity(request.getMenuName(), request.getUnit(), request.getQuantity(), category);
+        var menuEntity = new MenuEntity(request.getMenuName(), category);
         menuEntity = menuRepository.save(menuEntity);
         return menuTransformer.transformEntity(menuEntity);
     }
@@ -47,8 +47,6 @@ public class MenuService {
 
         var menuEntity = menuEntityOptional.get();
         menuEntity.setMenuName(request.getMenuName());
-        menuEntity.setUnit(request.getUnit());
-        menuEntity.setQuantity(request.getQuantity());
         menuEntity.setCategory(Category.valueOf(request.getCategory()));
         menuEntity = menuRepository.save(menuEntity);
 

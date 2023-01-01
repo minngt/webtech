@@ -15,24 +15,15 @@ public class MenuEntity {
     @Column(name = "menu_name", nullable = false)
     private String menuName;
 
-    @Column(name = "unit")
-    private String unit;
-
-    @Column(name ="quantity")
-    private Double quantity;
-
     @Column(name = "category")
     @Enumerated(value = EnumType.STRING)
     private Category category;
 
     @OneToMany(mappedBy = "meal", fetch = FetchType.EAGER)
-    private List<ExtraEntity> extras = new ArrayList<>();
+    private List<IngredientEntity> ingredients = new ArrayList<>();
 
-    public MenuEntity(String menuName, String unit, Double quantity, Category category) {
-
+    public MenuEntity(String menuName, Category category) {
         this.menuName = menuName;
-        this.unit = unit;
-        this.quantity = quantity;
         this.category = category;
     }
 
@@ -50,22 +41,6 @@ public class MenuEntity {
         this.menuName = menuName;
     }
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public Double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Double quantity) {
-        this.quantity = quantity;
-    }
-
     public Category getCategory() {
         return category;
     }
@@ -74,11 +49,11 @@ public class MenuEntity {
         this.category = category;
     }
 
-    public List<ExtraEntity> getExtras() {
-        return extras;
+    public List<IngredientEntity> getIngredients() {
+        return ingredients;
     }
 
-    public void setExtras(List<ExtraEntity> extras) {
-        this.extras = extras;
+    public void setIngredients(List<IngredientEntity> ingredients) {
+        this.ingredients = ingredients;
     }
 }
