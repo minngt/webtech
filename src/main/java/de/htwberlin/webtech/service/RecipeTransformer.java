@@ -16,7 +16,7 @@ public class RecipeTransformer {
                 recipeEntity.getIngredients(),
                 recipeEntity.getPortion(),
                 recipeEntity.getTotalTime(),
-                recipeEntity.getDirection()
+                recipeEntity.getInstruction()
 
         );
     }

@@ -39,7 +39,7 @@ public class RecipeService {
                                         request.getIngredients(),
                                         request.getPortion(),
                                         request.getTotalTime(),
-                                        request.getDirection());
+                                        request.getInstruction());
         recipeEntity = recipeRepository.save(recipeEntity);
         return recipeTransformer.transformEntity(recipeEntity);
     }
@@ -56,7 +56,7 @@ public class RecipeService {
         recipeEntity.setIngredients(request.getIngredients());
         recipeEntity.setPortion(request.getPortion());
         recipeEntity.setTotalTime(request.getTotalTime());
-        recipeEntity.setDirection(request.getDirection());
+        recipeEntity.setInstruction(request.getInstruction());
         recipeEntity = recipeRepository.save(recipeEntity);
 
         return recipeTransformer.transformEntity(recipeEntity);

@@ -24,17 +24,17 @@ public class RecipeEntity {
     private int portion;
     @Column(name = "total_time")
     private int totalTime;
-    @Column(name = "direction")
-    private String direction;
+    @Column(name = "instruction")
+    private String instruction;
 
 
-    public RecipeEntity(String recipeName, Category category, String ingredients, int portion, int totalTime, String direction) {
+    public RecipeEntity(String recipeName, Category category, String ingredients, int portion, int totalTime, String instruction) {
         this.recipeName = recipeName;
         this.category = category;
         this.ingredients = ingredients;
         this.portion = portion;
         this.totalTime = totalTime;
-        this.direction = direction;
+        this.instruction = instruction;
 
     }
 
@@ -84,11 +84,11 @@ public class RecipeEntity {
         this.totalTime = totalTime;
     }
 
-    public String getDirection() {
-        return direction;
+    public String getInstruction() {
+        return instruction;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
     }
 }

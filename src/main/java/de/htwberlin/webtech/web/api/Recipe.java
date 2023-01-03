@@ -8,17 +8,17 @@ public class Recipe {
     private String ingredients;
     private int portion;
     private int totalTime;
-    private String direction;
+    private String instruction;
 
 
-    public Recipe(long id, String recipeName, String category, String ingredients, int portion, int totalTime, String direction) {
+    public Recipe(long id, String recipeName, String category, String ingredients, int portion, int totalTime, String instruction) {
         this.id = id;
         this.recipeName = recipeName;
         this.category = category;
         this.ingredients = ingredients;
         this.portion = portion;
         this.totalTime = totalTime;
-        this.direction = direction;
+        this.instruction = instruction;
     }
 
     public long getId() {
@@ -69,11 +69,11 @@ public class Recipe {
         this.totalTime = totalTime;
     }
 
-    public String getDirection() {
-        return direction;
+    public String getInstruction() {
+        return instruction;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
     }
 }

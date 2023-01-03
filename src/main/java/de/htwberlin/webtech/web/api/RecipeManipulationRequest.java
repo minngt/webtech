@@ -7,16 +7,16 @@ public class RecipeManipulationRequest {
     private String ingredients;
     private int portion;
     private int totalTime;
-    private String direction;
+    private String instruction;
 
 
-    public RecipeManipulationRequest(String recipeName, String category, String ingredients, int portion, int totalTime, String direction) {
+    public RecipeManipulationRequest(String recipeName, String category, String ingredients, int portion, int totalTime, String instruction) {
         this.recipeName = recipeName;
         this.category = category;
         this.ingredients = ingredients;
         this.portion = portion;
         this.totalTime = totalTime;
-        this.direction = direction;
+        this.instruction = instruction;
     }
 
     public RecipeManipulationRequest(){}
@@ -61,11 +61,11 @@ public class RecipeManipulationRequest {
         this.totalTime = totalTime;
     }
 
-    public String getDirection() {
-        return direction;
+    public String getInstruction() {
+        return instruction;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
     }
 }
