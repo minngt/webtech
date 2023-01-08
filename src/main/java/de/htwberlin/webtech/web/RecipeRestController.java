@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -33,10 +34,13 @@ public class RecipeRestController {
     }
 
     @PostMapping(path = "/api/v1/recipes")
-    public  ResponseEntity<Void> createrecipe(@RequestBody RecipeManipulationRequest request) throws URISyntaxException {
+    public  ResponseEntity<Void> createrecipe(@Valid @RequestBody RecipeManipulationRequest request) throws URISyntaxException {
         var recipe = recipeService.create(request);
         URI uri = new URI("api/v1/recipes/" + recipe.getId());
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity
+                            .created(uri)
+                            .header("Access-Control-Expose-Headers","Location")
+                            .build();
     }
 
     @PutMapping(path = "/api/v1/recipes/{id}")
